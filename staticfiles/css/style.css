@@ -1,5 +1,47 @@
-h1 {
+/* CORES 
+.color1 {color: #8dc1fd;}
+.color2 {color: #bde9ff;}
+.color3 {color: #001d36;}
+.color4 {color: #74777c;}
+.color5 {color: #e2e2e2;}
 
-    color: red;
+*/
 
+/* ALL */
+body {
+    font-family: Verdana;
+    background-color: #001d36;
 }
+
+.bg-primary-color {
+    background-color: #e2e2e2;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+
+/* HOME */
+
+.navbar-nav a {
+    color: #184c68;
+    font-size: 1.4em;
+}
+
+.navbar-nav .login {
+    color: #2099a1;
+}
+
+.navbar-nav .login:hover {
+    color: #001d36;
+}
+
+.navbar-brand.logo-kanban-life {
+    color: black;
+    font-size: 2em;
+    text-align: center;
+}
+
+
+
