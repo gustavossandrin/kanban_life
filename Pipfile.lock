@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "63bf930de6e5b6987b1cbfccd44ecbd79fe1622303e2d8741e114db0e3045d99"
+            "sha256": "ff8f852b5037fb688b2f7bdf0c48e9070ffeeea37b647d79f7ddd3a266e88dcb"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -39,6 +39,14 @@
             ],
             "markers": "sys_platform == 'win32'",
             "version": "==0.4.6"
+        },
+        "dj-database-url": {
+            "hashes": [
+                "sha256:5c2993b91801c0f78a8b19e642b497b90831124cbade0c265900d4c1037b4730",
+                "sha256:b23b15046cb38180e0c95207bcc90fe5e9dbde8eef16065907dd85cf4ca7036c"
+            ],
+            "index": "pypi",
+            "version": "==1.2.0"
         },
         "django": {
             "hashes": [
