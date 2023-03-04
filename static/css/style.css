@@ -1,13 +1,3 @@
-/* CORES 
-.color1 {color: #8dc1fd;}
-.color2 {color: #bde9ff;}
-.color3 {color: #001d36;}
-.color4 {color: #74777c;}
-.color5 {color: #e2e2e2;}
-
-*/
-
-/* MEDIAS */
 @media(max-width: 992px) {
     /* FOOTER */
     .footer-link-text {
