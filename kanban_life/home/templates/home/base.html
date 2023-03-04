@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
       <meta charset="UTF-8">
-      <title>Title</title>
+      <title>{% block title %}Kanban Life{% endblock title %}</title>
       <!-- BOOTSTRAP ICONS  -->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
       <!-- BOOTSTRATP CSS -->
@@ -36,19 +36,40 @@
               <a class="nav-link" href="#">GitHub<i class="bi bi-github ms-1"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link login" href="#">Login</a>
+              <a class="nav-link" href="#">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link login" href="#">Sign Up</a>
+              <a class="nav-link" href="#">Sign Up</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+    {% block body %}{% endblock body %}
+    <footer>
+      <div class="container-fluid social-media">
+        <div class="row text-align-center">
+          <div class="col-4 mt-3">
+            <a href=""><i class="bi bi-envelope footer-link-icon"></i><span class="footer-link-text ms-1">gustavosandrindattein123@gmail.com</span></a>
+          </div>
+          <div class="col-4 mt-3">
+            <a href="https://www.linkedin.com/in/gustavo-sandrin-848044241/" target="_blank"><i class="bi bi-linkedin footer-link-icon"></i><span class="footer-link-text ms-1">Linkedin</span></a>
+          </div>
+          <div class="col-4 mt-3">
+            <a href="https://www.instagram.com/gustavossandrin/" target="_blank"><i class="bi bi-instagram footer-link-icon"></i><span class="footer-link-text ms-1">Instagram</span></a>
+          </div>
+          <div class="col-12 footer-copyright mt-4">
+            <p>© 2023-{% now 'Y' %} Gustavo Sandrin. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script>
-
+      {% block script %}{% endblock script %}
     </script>
   </body>
 </html>

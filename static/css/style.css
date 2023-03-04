@@ -7,10 +7,22 @@
 
 */
 
+/* MEDIAS */
+@media(max-width: 992px) {
+    /* FOOTER */
+    .footer-link-text {
+        display: none !important;
+        color: black;
+    }
+
+    .footer-link-icon {
+        font-size: 1.8em;
+    }
+}
+
 /* ALL */
 body {
     font-family: Verdana;
-    background-color: #001d36;
 }
 
 .bg-primary-color {
@@ -21,27 +33,44 @@ body {
     text-align: center;
 }
 
-
-/* HOME */
-
+/* BASE NAVBAR */
 .navbar-nav a {
     color: #184c68;
     font-size: 1.4em;
 }
 
-.navbar-nav .login {
-    color: #2099a1;
+.navbar-nav a:hover {
+    background-color: #dadada;
 }
 
-.navbar-nav .login:hover {
-    color: #001d36;
-}
 
 .navbar-brand.logo-kanban-life {
     color: black;
     font-size: 2em;
     text-align: center;
 }
+
+/* BASE FOOTER */
+.social-media {
+    background-color: #001d36;
+    color: #ccc;
+    white-space: nowrap;
+}
+
+.social-media a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    color: #fff;
+}
+
+
+
+
+
+
 
 
 
