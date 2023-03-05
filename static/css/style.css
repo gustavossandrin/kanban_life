@@ -1,3 +1,12 @@
+/* CORES 
+.color1 {color: #8dc1fd;}
+.color2 {color: #bde9ff;}
+.color3 {color: #001d36;}
+.color4 {color: #74777c;}
+.color5 {color: #e2e2e2;}
+*/
+
+/* MEDIAS */
 @media(max-width: 992px) {
     /* FOOTER */
     .footer-link-text {
@@ -19,18 +28,27 @@ body {
     background-color: #e2e2e2;
 }
 
+.bg-secondary-color {
+    background-color: #184c68;
+}
+
 .text-align-center {
     text-align: center;
 }
 
 /* BASE NAVBAR */
+
+.navbar {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 25%);
+}
+
 .navbar-nav a {
-    color: #184c68;
+    color: #666;
     font-size: 1.4em;
 }
 
 .navbar-nav a:hover {
-    background-color: #dadada;
+    background-color: #f1f1f1;
 }
 
 
@@ -55,6 +73,37 @@ body {
 .social-media a:hover {
     color: #fff;
 }
+
+/* CONTEUDO DA PAGINA HOME */
+
+#primeiro-conteudo-home {
+    color: #fff;
+    font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    background-color: #2a7cbb;
+}
+
+.home-sign-up {
+    background-color: #3e4147;
+}
+
+.mensagem-sign-up {
+    color: white;
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.home-sign-up .btn {
+    background-color: #4db955;
+    border-color: #4db955;
+    border-radius: 4px;
+    padding: 10px 30px;
+}
+
+.home-sign-up .btn:hover {
+    background-color: #3e9443;
+    border-color: #3e9443;
+}
+
 
 
 

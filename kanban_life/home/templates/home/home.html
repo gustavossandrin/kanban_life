@@ -2,9 +2,26 @@
 {% load static %}
 {% block title %}Kanban Life{% endblock title %}
 {% block body %}
-
-
-
-
+    <div class="container-fluid" id="primeiro-conteudo-home">
+        <div class="row justify-content-center">
+            <div class="col-12 mt-5 text-align-center">
+                <h1>ORGANIZE YOUR ACTIVIES.</h1>
+            </div>
+            <div class="col-12 mt-2 text-align-center">
+                <h3>save your time and effort.</h3>
+            </div>      
+            <div class="col-lg-6 col-10 text-align-center mt-5" id="foto-kanban-home">
+                <img src="{% static 'img/kanban.png' %}" alt="foto do kanban" class="img-fluid d-block w-100">
+            </div>           
+        </div>
+    </div>
+    <div class="container-fluid home-sign-up">
+        <div class="row justify-content-center">
+            <div class="col text-align-center">
+                <span class="mensagem-sign-up m-4">Sign Up for Free!</span>
+                <a href=""><span class="btn btn-success m-4">Sign Up</span></a>
+            </div>       
+        </div>
+    </div>
 {% endblock body %}
 
