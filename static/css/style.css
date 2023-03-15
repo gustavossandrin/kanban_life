@@ -24,12 +24,20 @@ body {
     font-family: Verdana;
 }
 
+.bg-white-color {
+    background-color: #fff;
+}
+
 .bg-primary-color {
     background-color: #e2e2e2;
 }
 
 .bg-secondary-color {
     background-color: #184c68;
+}
+
+.bg-tertiary-color {
+    background-color: #2a7cbb;
 }
 
 .text-align-center {
@@ -104,6 +112,47 @@ body {
     border-color: #3e9443;
 }
 
+/* FORM SIGN-UP */
+
+.sign-up-form .bg-white-color{
+    box-shadow: 0 5px 20px 0 rgb(0 0 0 / 30%);
+}
+
+.sign-up-form{
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.title-form-sign-up {
+    font-weight: 700;
+    padding-top: 50px;
+}
+
+#id_form_sign_up button {
+    color: #fff;
+    background-color: #4db955;
+    border-color: #4db955;
+    border-radius: 4px;
+}
+
+.form-error {
+    white-space: pre-wrap;
+    border: 2px solid #b94a48;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    color: #b94a48;
+    background-color: #f2dede;
+    display: none;
+}
+
+.checkbox-error-form {
+    border-color: #b94a48;
+}
+
+.checkbox-error-form:focus {
+    border-color: #b94a48;
+    box-shadow:0 0 0 0.25rem rgba(241, 56, 19, 0.25);
+}
 
 
 

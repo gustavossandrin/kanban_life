@@ -1,0 +1,59 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block title %}Sign Up - Kanban Life{% endblock title %}
+{% block body %}
+
+    <div class="container-fluid sign-up-form bg-tertiary-color">
+        <div class="row justify-content-center">
+            <div class="col-8 col-md-4 bg-white-color">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <h2 class="text-align-center title-form-sign-up">Sign up for FREE</h2>
+                        <form id="id_form_sign_up">
+                            <div class="m-4">
+                              <label for="id_nome" class="form-label">FULL NAME</label>
+                              <input type="text" required class="form-control" id="id_nome" name="nome_completo">
+                            </div>
+                            <div class="m-4">
+                              <label for="id_email" class="form-label">EMAIL</label>
+                              <input type="email" class="form-control" id="id_email" name="email">
+                            </div>
+                            <div class="m-4">
+                                <label for="id_password" class="form-label">PASSWORD</label>
+                                <input type="password" class="form-control" id="id_password" name="senha">
+                            </div>
+                            <div class="m-4 form-check">
+                              <input type="checkbox" class="form-check-input" id="signUp-terms">
+                              <label class="form-check-label" for="signUp-terms">I agree to the Terms of Service and Privacy Policy
+                              </label>
+                            </div>
+                            <p class="form-error m-4" id="signUp-termsError">You must agree in order to create an account</p>
+                            <div class="m-4 text-align-center">
+                                <button type="submit" class="btn btn-success">CREATE ACCOUNT</button>
+                            </div>
+                            
+                            
+                          </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock body %}
+{% block script %}
+
+    $('#id_form_sign_up').on('submit', function(e){
+        e.preventDefault();
+        if (!$('#signUp-terms').is(":checked")){
+            $('.form-error').show();
+            $('#signUp-terms').addClass('checkbox-error-form');
+            $('#signUp-terms').focus();
+            return false
+        }
+        this.submit();
+
+    })
+
+
+{% endblock script %}

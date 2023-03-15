@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from kanban_life.home.views import home, about
+from kanban_life.home.views import home, about, sign_up
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('about/', about, name='about'),
+    path('sign-up/', sign_up, name='sign_up'),
 ]
