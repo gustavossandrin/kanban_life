@@ -9,7 +9,8 @@
                 <div class="row justify-content-center">
                     <div class="col">
                         <h2 class="text-align-center title-form-sign-up">Sign up for FREE</h2>
-                        <form id="id_form_sign_up">
+                        <form method="post" id="id_form_sign_up">
+                            {% csrf_token %}
                             <div class="m-4">
                               <label for="id_nome" class="form-label">FULL NAME</label>
                               <input type="text" required class="form-control" id="id_nome" name="nome_completo">
