@@ -5,7 +5,7 @@
 
     <div class="container-fluid sign-up-form bg-tertiary-color">
         <div class="row justify-content-center">
-            <div class="col-8 col-md-4 bg-white-color">
+            <div class="col-8 col-md-6 col-lg-4 col-xl-3 bg-white-color">
                 <div class="row justify-content-center">
                     <div class="col">
                         <h2 class="text-align-center title-form-sign-up">Sign up for FREE</h2>
@@ -33,7 +33,10 @@
                             <div class="m-4 text-align-center">
                                 <button type="submit" class="btn btn-success">CREATE ACCOUNT</button>
                             </div>
-                            
+                            <hr class="form-divider m-4">
+                            <div class="m-4 text-align-center">
+                                <p>Already have an account? <a href="{% url 'sign_up' %}">Login</a></p>
+                            </div>
                             
                           </form>
                     </div>
@@ -44,6 +47,21 @@
     
 {% endblock body %}
 {% block script %}
+
+     // Tirar alertar caso altere o email ou cheque as permissoes
+    $('#signUp-terms').on('change', function(){
+        if ($('#signUp-terms').is(":checked")){
+            $('#signUp-termsError').hide();
+            $('#signUp-terms').removeClass('checkbox-error-form');
+        }
+    });
+
+    $('#id_email').on('change', function(){
+        if ($('#emailAlreadyExist').is(":visible")){
+            $('#emailAlreadyExist').hide();
+        }
+    });
+
 
     $('#id_form_sign_up').on('submit', function(e){
         e.preventDefault();
@@ -93,18 +111,10 @@
                               title: 'Account Created!!!',
                               text: "Do you want to be taken to the login?",
                               icon: 'success',
-                              showCancelButton: true,
                               confirmButtonText: 'Yes take me!',
-                              cancelButtonText: 'Leave me!',
-                              reverseButtons: false
                             }).then((result) => {
                               if (result.isConfirmed) {
                                 window.location.href = "/login/"
-                              } else if (
-                                /* Read more about handling dismissals below */
-                                result.dismiss === Swal.DismissReason.cancel
-                              ) {
-                                window.location.href = ""
                               }
                             })
                         }
