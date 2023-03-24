@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from kanban_life.home.views import home, about, sign_up, verificar_email_ja_existente
+from kanban_life.home.views import home, about, sign_up, verificar_email_ja_existente, login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +24,6 @@ urlpatterns = [
     path('', home, name='home'),
     path('about/', about, name='about'),
     path('sign_up/', sign_up, name='sign_up'),
+    path('login/', login, name='login'),
     path('verificar_email_ja_existente/', verificar_email_ja_existente, name='verificar_email_ja_existente'),
 ]

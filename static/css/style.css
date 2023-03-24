@@ -78,6 +78,8 @@ body {
     background-color: #001d36;
     color: #ccc;
     white-space: nowrap;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .social-media a {
@@ -159,6 +161,32 @@ body {
 .checkbox-error-form:focus {
     border-color: #b94a48;
     box-shadow:0 0 0 0.25rem rgba(241, 56, 19, 0.25);
+}
+
+/* FORM LOGIN */
+
+.login-form .bg-white-color{
+    box-shadow: 0 5px 20px 0 rgb(0 0 0 / 30%);
+}
+
+.login-form{
+    padding-top: 135px;
+    padding-bottom: 165px;
+}
+
+.title-form-login {
+    font-weight: 700;
+    padding-top: 50px;
+}
+
+#id_form_login button {
+    margin-top: 15px !important;
+    color: #fff;
+    background-color: #4db955;
+    border-color: #4db955;
+    border-radius: 4px;
+    width: 35%;
+    height: 20%;
 }
 
 

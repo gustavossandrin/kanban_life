@@ -35,6 +35,10 @@ def sign_up(request):
     return render(request, 'home/sign_up.html')
 
 
+def login(request):
+    return render(request, 'home/login.html')
+
+
 def verificar_email_ja_existente(request):  # Vai verificar se já tem algum usuario com o email que vai ser passado
     existe = False
     email = request.POST['email_verificar']
