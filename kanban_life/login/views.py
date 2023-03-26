@@ -9,7 +9,6 @@ from kanban_life.login.forms import LoginForm
 
 
 def login_index(request):
-    msg_aviso = ""
     if request.POST:
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -22,5 +21,9 @@ def login_index(request):
 
             login(request, user)
             return HttpResponseRedirect(reverse('home'))
+        else:
+            return render(request, 'login/login.html', {'form': form})
+    else:
+        form = LoginForm()
 
-    return render(request, 'login/login.html')
+    return render(request, 'login/login.html', {'form': form})
