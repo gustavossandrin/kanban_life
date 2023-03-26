@@ -46,3 +46,12 @@ def verificar_email_ja_existente(request):  # Vai verificar se já tem algum usu
     }
 
     return HttpResponse(json.dumps(retorno), content_type='application/json')
+
+
+def handler_404(request, exception):
+    return render(request, 'home/error_404.html')
+
+def handler_500(request):
+    return render(request, 'home/error_404.html')
+
+
