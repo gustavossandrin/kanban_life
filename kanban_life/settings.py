@@ -34,6 +34,8 @@ ALLOWED_HOSTS = ['*']
 AUTH_USER_MODEL = 'home.User'
 
 
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'kanban_life.home',
+    'kanban_life.login',
 ]
 
 MIDDLEWARE = [

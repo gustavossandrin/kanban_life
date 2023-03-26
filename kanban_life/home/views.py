@@ -20,10 +20,8 @@ def sign_up(request):
         nome_completo = request.POST['nome_completo']
         email = request.POST['email']
         senha = request.POST['senha']
-        user = User()
-        user.password = senha
-        user.email = email
-        user.first_name = nome_completo
+
+        user = User.objects.create_user(email, senha, first_name=nome_completo)
         user.save()
 
         retorno = {
@@ -33,10 +31,6 @@ def sign_up(request):
         return HttpResponse(json.dumps(retorno), content_type='application/json')
 
     return render(request, 'home/sign_up.html')
-
-
-def login(request):
-    return render(request, 'home/login.html')
 
 
 def verificar_email_ja_existente(request):  # Vai verificar se já tem algum usuario com o email que vai ser passado
