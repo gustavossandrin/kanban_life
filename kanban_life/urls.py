@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from kanban_life.home.views import home, about, sign_up, verificar_email_ja_existente, handler_404, handler_500
-from kanban_life.login.views import login_index
+from kanban_life.login.views import login_index, login_exit
 from kanban_life.board.views import board_index
 
 handler404 = handler_404
@@ -31,6 +31,7 @@ urlpatterns = [
     path('verificar_email_ja_existente/', verificar_email_ja_existente, name='verificar_email_ja_existente'),
     # LOGIN
     path('login/', login_index, name='login_index'),
+    path('login/exit/', login_exit, name='login_exit'),
     # BOARD
     path('board/<int:id>', board_index, name='board_index'),
 ]

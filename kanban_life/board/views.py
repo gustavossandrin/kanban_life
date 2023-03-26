@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseNotFound
 
 from django.shortcuts import render
 
@@ -7,7 +8,6 @@ from django.shortcuts import render
 
 @login_required
 def board_index(request, id):
-    tgeste = 1 + 1
     if request.user.id != id:
-        pass
+        return render(request, 'home/error_404.html')
     return render(request, 'board/board.html')

@@ -33,6 +33,8 @@ ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'home.User'
 
+LOGIN_URL = '/login/'
+LOGOUT_REDIRECT_URL = '/login/'
 
 
 
