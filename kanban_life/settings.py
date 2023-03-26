@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'kanban_life.home',
     'kanban_life.login',
+    'kanban_life.board',
 ]
 
 MIDDLEWARE = [
