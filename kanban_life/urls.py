@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import handler404, handler500
 
 from kanban_life.home.views import home, about, sign_up, verificar_email_ja_existente, handler_404, handler_500
 from kanban_life.login.views import login_index
@@ -35,6 +34,3 @@ urlpatterns = [
     # BOARD
     path('board/<int:id>', board_index, name='board_index'),
 ]
-
-
-

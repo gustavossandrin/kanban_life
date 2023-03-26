@@ -20,6 +20,11 @@
 }
 
 /* ALL */
+
+body, html{
+  height: 100%;
+}
+
 body {
     font-family: Verdana;
 }
@@ -196,6 +201,31 @@ body {
     border-radius: 0.25em;
     color: #b94a48;
     background-color: #f2dede;
+}
+
+/* PAGE NOT FOUND */
+#page-not-found {
+    color: #fff;
+    font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    background-color: #2a7cbb;
+    height: 80%;
+}
+
+.page-not-found-message{
+    color: #333;
+    background-color: #fff;
+    text-align: left;
+    padding-left: 70px;
+    padding-bottom: 50px;
+}
+
+.page-not-found-message h1{
+    font-size: 2.625em;
+    font-weight: 700;
+}
+
+.page-not-found-message p{
+    font-size: 1.3em;
 }
 
 
