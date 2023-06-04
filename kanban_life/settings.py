@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'kanban_life.home',
     'kanban_life.login',
     'kanban_life.board',
+    'kanban_life.tools',
 ]
 
 MIDDLEWARE = [

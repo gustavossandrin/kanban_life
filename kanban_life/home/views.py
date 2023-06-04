@@ -5,6 +5,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from kanban_life.home.models import User
+from kanban_life.tools.views import criar_colunas_iniciais
 
 
 def home(request):
@@ -28,6 +29,7 @@ def sign_up(request):
             'STATUS': 'OK',
             'mensagem': 'Conta Criada!'
         }
+        criar_colunas_iniciais(user)
         return HttpResponse(json.dumps(retorno), content_type='application/json')
 
     return render(request, 'home/sign_up.html')
