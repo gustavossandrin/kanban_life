@@ -74,7 +74,7 @@ body {
 
 .navbar-brand.logo-kanban-life {
     color: black;
-    font-size: 2em;
+    font-size: 1.8em;
     text-align: center;
 }
 
@@ -227,6 +227,78 @@ body {
 .page-not-found-message p{
     font-size: 1.3em;
 }
+
+/* BOARD */
+.navbar-brand.logo-kanban-life-dark {
+    color: #f4f4f4;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+/* BOARD TABLE */
+.board-table{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    background: #fff;
+    border-spacing: 0;
+}
+
+.column-header{
+    user-select: none;
+    box-sizing: border-box;
+    background-color: #eee;
+    border-top: 1px solid #c3c3c3;
+    border-left: 1px solid #d7d7d7;
+    height: 37px;
+    min-width: 220px;
+    vertical-align: top;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.columnHeader-flexSpacerr{
+    flex: 0 1000 36px;
+}
+
+.columnHeader-inner{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: 36px;
+    padding: 7px 6px 6px;
+    position: relative;
+}
+
+.columnHeader-nameAndInfo{
+    user-select: none;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 6px;
+}
+
+.columnHeader-name{
+    user-select: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 0 1 auto;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+    cursor: pointer;
+    font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
+}
+}
+
 
 
 
