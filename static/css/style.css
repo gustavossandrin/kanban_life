@@ -359,6 +359,27 @@ body {
     bottom: 0;
 }
 
+.task {
+    position: relative;
+    padding: 5px 7px 0;
+    border: 1px solid #fed22f;
+    margin: 8px;
+    cursor: pointer;
+    word-wrap: break-word;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.task-cyan {
+    background-color: #dbfff2;
+    border-color: #70ddb4;
+}
+
+.task-name {
+    display: block;
+    margin-bottom: 5px;
+}
+
 
 
 

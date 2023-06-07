@@ -35,7 +35,11 @@
                                 <div class="board-taskListCellHeader-inner"></div>
                             </div>
                             <div class="taskList">
-
+                                {% for tarefa in coluna.tarefas %}
+                                <div class="task task-cyan ">
+                                    <span class="task-name">{{ tarefa.nome }}</span>
+                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </td>

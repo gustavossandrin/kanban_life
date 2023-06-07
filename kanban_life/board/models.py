@@ -39,3 +39,38 @@ class TarefaColuna(models.Model):
     )
 
 
+class Tarefa(models.Model):
+    tarefa_coluna = models.ForeignKey(
+        'board.TarefaColuna',
+        on_delete=models.CASCADE,
+        null=False,
+        blank=False,
+    )
+
+    nome = models.CharField(
+        u'Nome da Tarefa',
+        max_length=500,
+        null=False,
+        blank=False,
+    )
+
+    tempo = models.TimeField(
+        u'Tempo da Tarefa',
+        auto_now=False,
+        auto_now_add=False,
+    )
+
+    descricao = models.CharField(
+        u'Descrição da Tarefa',
+        max_length=500,
+    )
+
+    posicao = models.IntegerField(
+        u'Posição Coluna',
+        blank=False,
+        null=False,
+        default=1,
+    )
+
+
+
