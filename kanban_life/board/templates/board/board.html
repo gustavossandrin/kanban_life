@@ -14,48 +14,34 @@
          <table class="board-table">
             <thead>
                 <tr>
-                    <th class="column-header">
-                        <div class="columnHeader-inner">
-                            <div class="columnHeader-flexSpacer"></div>
-                            <div class="columnHeader-nameAndInfo">
-                                <h2 class="columnHeader-name">Segunda</h2>
+                    {% for coluna in colunas %}
+                        <th class="column-header {% if forloop.first %}column-first{% elif forloop.last %}column-last{% endif %}">
+                            <div class="columnHeader-inner">
+                                <div class="columnHeader-flexSpacer"></div>
+                                <div class="columnHeader-nameAndInfo">
+                                    <h2 class="columnHeader-name">{{ coluna.nome }}</h2>
+                                </div>
                             </div>
-                        </div>
-                    </th>
-                    <th class="column-header">
-                        <div class="columnHeader-inner">
-                            <div class="columnHeader-flexSpacer"></div>
-                            <div class="columnHeader-nameAndInfo">
-                                <h2 class="columnHeader-name">Segunda</h2>
-                            </div>
-                        </div>
-                    </th>
-                    <th class="column-header">
-                        <div class="columnHeader-inner">
-                            <div class="columnHeader-flexSpacer"></div>
-                            <div class="columnHeader-nameAndInfo">
-                                <h2 class="columnHeader-name">Segunda</h2>
-                            </div>
-                        </div>
-                    </th>
-                    <th class="column-header">
-                        <div class="columnHeader-inner">
-                            <div class="columnHeader-flexSpacer"></div>
-                            <div class="columnHeader-nameAndInfo">
-                                <h2 class="columnHeader-name">Segunda</h2>
-                            </div>
-                        </div>
-                    </th>
-                    <th class="column-header">
-                        <div class="columnHeader-inner">
-                            <div class="columnHeader-flexSpacer"></div>
-                            <div class="columnHeader-nameAndInfo">
-                                <h2 class="columnHeader-name">Segunda</h2>
-                            </div>
-                        </div>
-                    </th>
+                        </th>
+                    {% endfor %}
                 </tr>
             </thead>
+             <tbody>
+                <tr class="board-swimlane">
+                    {% for coluna in colunas %}
+                    <td class="board-taskListCell {% if forloop.first %}column-first{% elif forloop.last %}column-last{% endif %}">
+                        <div class="board-taskListCell-inner">
+                            <div class="board-taskListCellHeader">
+                                <div class="board-taskListCellHeader-inner"></div>
+                            </div>
+                            <div class="taskList">
+
+                            </div>
+                        </div>
+                    </td>
+                    {% endfor %}
+                </tr>
+             </tbody>
         </table>
     </div>
 </div>

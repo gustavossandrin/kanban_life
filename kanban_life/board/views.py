@@ -5,9 +5,14 @@ from django.shortcuts import render
 
 
 # Create your views here.
+from kanban_life.board.models import TarefaColuna
+
 
 @login_required
 def board_index(request, id):
     if request.user.id != id:
         return render(request, 'home/error_404.html')
-    return render(request, 'board/board.html')
+
+    colunas = TarefaColuna.objects.filter(user_id=id).order_by('posicao')
+
+    return render(request, 'board/board.html', {'colunas': colunas})
