@@ -78,6 +78,10 @@ body {
     text-align: center;
 }
 
+.navbar-brand.logo-kanban-life img {
+    height: 70px;
+}
+
 /* BASE FOOTER */
 .social-media {
     background-color: #001d36;
@@ -233,6 +237,10 @@ body {
     color: #f4f4f4;
     font-size: 1.5em;
     text-align: center;
+}
+
+logo-kanban-life-dark-img {
+    height: 70px;
 }
 
 /* BOARD TABLE THEAD */
