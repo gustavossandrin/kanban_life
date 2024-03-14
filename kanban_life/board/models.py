@@ -1,6 +1,18 @@
 from django.db import models
 
 
+COR_CHOICES = (
+    ('yellow', 'Yellow'),
+    ('green', 'Green'),
+    ('blue', 'Blue'),
+    ('red', 'Red'),
+    ('cyan', 'Cyan'),
+    ('orange', 'Orange'),
+    ('purple', 'Purple'),
+    ('magenta', 'Magenta'),
+)
+
+
 class TarefaColuna(models.Model):
     nome = models.CharField(
         u'Nome',
@@ -49,13 +61,15 @@ class Tarefa(models.Model):
 
     nome = models.CharField(
         u'Nome da Tarefa',
-        max_length=500,
         null=False,
         blank=False,
+        max_length=300,
     )
 
     tempo = models.TimeField(
         u'Tempo da Tarefa',
+        null=True,
+        blank=True,
         auto_now=False,
         auto_now_add=False,
     )
@@ -63,6 +77,8 @@ class Tarefa(models.Model):
     descricao = models.CharField(
         u'Descrição da Tarefa',
         max_length=500,
+        null=True,
+        blank=True,
     )
 
     posicao = models.IntegerField(
@@ -70,6 +86,27 @@ class Tarefa(models.Model):
         blank=False,
         null=False,
         default=1,
+    )
+
+    cor = models.CharField(
+        u'Dia Da Semana',
+        max_length=10,
+        choices=COR_CHOICES,
+        null=True,
+        blank=True,
+    )
+    #  Dados de LOG
+    criado_em = models.DateTimeField(
+        u'Criado em',
+        blank=True,
+        null=True,
+        auto_now_add=True,
+    )
+    alterado_em = models.DateTimeField(
+        u'Alterado em',
+        blank=True,
+        null=True,
+        auto_now=True,
     )
 
 

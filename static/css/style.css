@@ -239,7 +239,7 @@ body {
     text-align: center;
 }
 
-logo-kanban-life-dark-img {
+.logo-kanban-life-dark-img {
     height: 70px;
 }
 
@@ -291,6 +291,13 @@ logo-kanban-life-dark-img {
     align-items: center;
     overflow: hidden;
     padding: 0 6px;
+}
+
+.columnHeader-inner .bi-plus-circle {
+    color: green;
+    font-size: 1.5em;
+    margin-left: auto;
+    cursor: pointer;
 }
 
 .columnHeader-name{
@@ -387,6 +394,129 @@ logo-kanban-life-dark-img {
     display: block;
     margin-bottom: 5px;
 }
+
+/* CSS MODAL CRIAÇÂO TAREFA */
+.addTaskDialog-wrapper, .taskDetails-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, .6);
+    z-index: 2000;
+    display: none;
+    overflow: auto;
+}
+
+#addTaskDialog {
+    position: relative;
+    margin: 25px auto 50px;
+    line-height: 1.4;
+    width: 500px;
+    border-radius: 4px;
+    box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12);
+    padding: 30px 30px 10px;
+    min-height: 300px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+#modal_adiciona_tarefa input {
+    font-weight: 500;
+}
+
+#modal_adiciona_tarefa input:focus{
+    box-shadow: none;
+}
+
+#modal_adiciona_tarefa input::placeholder{
+    opacity: 0.7;
+}
+
+#modal_adiciona_tarefa select:focus{
+    box-shadow: none;
+}
+
+#color-circle {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+#color-circle.yellow{
+    background-color: #fed22f;
+}
+
+#color-circle.green{
+    background-color: #7dbb00;
+}
+
+#color-circle.blue{
+    background-color: #4a99ff;
+}
+
+#color-circle.red{
+    background-color: #ff8099;
+}
+
+#color-circle.cyan{
+    background-color: #70ddb4;
+}
+
+#color-circle.orange{
+    background-color: #ffb13b;
+}
+
+#color-circle.purple{
+   background-color: #c69cf3;
+}
+
+#color-circle.magenta{
+   background-color: #e2aae2;
+}
+
+
+.taskColor-yellow{
+    background-color: #ffffe0;
+}
+
+.taskColor-green{
+    background-color: #e5ffd1;
+}
+
+.taskColor-blue{
+    background-color: #cce3ff;;
+}
+
+.taskColor-red{
+    background-color: #ffdbe2;;
+}
+
+.taskColor-cyan{
+    background-color: #eafff8;;
+}
+
+.taskColor-orange{
+    background-color: #ffecc5;;
+}
+
+.taskColor-purple{
+    background-color: #efe6f8;;
+}
+
+.taskColor-magenta{
+    background-color: #ffedff;;
+}
+
+
+/* CSS MODAL CRIAÇÂO TAREFA */
+
 
 
 

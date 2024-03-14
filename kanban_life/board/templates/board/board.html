@@ -1,11 +1,14 @@
 {% extends 'board/base.html' %}
 {% load static %}
+{% load l10n %}
 {% block title %}Kanban Life{% endblock title %}
 {% block body %}
+<input type="hidden" id="id_kanban" value="{{ kanban_id|unlocalize }}">
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <div class="col text-align-center">
-      <a class="navbar-brand logo-kanban-life-dark" href="{% url 'home' %}"><img src="{% static 'img/logo_kanban.png' %}" alt=""></a>
+      <!--<a class="navbar-brand logo-kanban-life-dark" href="{% url 'home' %}"><img class="logo-kanban-life-dark-img" src="{% static 'img/logo_kanban.png' %}" alt=""></a>-->
+        <a href="{% url 'home' %}" class="navbar-brand">Kanban Life</a>
     </div>
   </div>
 </nav>
@@ -21,6 +24,7 @@
                                 <div class="columnHeader-nameAndInfo">
                                     <h2 class="columnHeader-name">{{ coluna.nome }}</h2>
                                 </div>
+                                <i onclick="modal_adiciona_tarefa({{coluna.id}})" class="bi bi-plus-circle"></i>
                             </div>
                         </th>
                     {% endfor %}
@@ -30,13 +34,13 @@
                 <tr class="board-swimlane">
                     {% for coluna in colunas %}
                     <td class="board-taskListCell {% if forloop.first %}column-first{% elif forloop.last %}column-last{% endif %}">
-                        <div class="board-taskListCell-inner">
+                        <div id="coluna_{{coluna.id|unlocalize}}" class="board-taskListCell-inner" ondblclick="modal_adiciona_tarefa({{coluna.id}})">
                             <div class="board-taskListCellHeader">
                                 <div class="board-taskListCellHeader-inner"></div>
                             </div>
                             <div class="taskList">
                                 {% for tarefa in coluna.tarefas %}
-                                <div class="task task-cyan ">
+                                <div class="task task-cyan" id="task_{{tarefa.id|unlocalize}}">
                                     <span class="task-name">{{ tarefa.nome }}</span>
                                 </div>
                                 {% endfor %}
@@ -50,5 +54,74 @@
     </div>
 </div>
 
+<div id="modal_adiciona_tarefa" class="addTaskDialog-wrapper appendWrapper" style="" tabindex="-1" role="dialog">
+    <div id="addTaskDialog" class="taskColor-yellow">
+        <input type="hidden" id="coluna_adiciona_tarafa" value="">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" maxlength="100" id="id_tarefa_nome" placeholder="Task name...">
+        </div>
+
+        <div class="input-group mb-3 col-md-10">
+            <select id="id_cor" onchange="alteraCorCirculo();" name="cor" class="form-control">
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="red">Red</option>
+                <option value="cyan">Cyan</option>
+                <option value="orange">Orange</option>
+                <option value="purple">Purple</option>
+                <option value="magenta">Magenta</option>
+            </select>
+            <div class="input-group-append">
+                <span class="input-group-text"><span id="color-circle" class="yellow"></span></span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
 {% endblock body %}
+
+{% block script %}
+    function modal_adiciona_tarefa(coluna_id){
+        $('#coluna_adiciona_tarafa').val(coluna_id)
+        $('#id_tarefa_nome').val('')
+        $('#modal_adiciona_tarefa').modal('show');
+    }
+
+    function criar_tarefa(){
+        if ( !$('#id_tarefa_nome').val()){
+            alert('Obrigatorio informar o nome')
+            return false;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/board/criar_tarefa/",
+            dataType: 'json',
+            data: {
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+                'coluna_id': $('#coluna_adiciona_tarafa').val(),
+                'tarefa_nome': $('#id_tarefa_nome').val(),
+                'kanban_id': $('#id_kanban').val(),
+            },
+            success: function (response)
+            {
+                console.log(response)
+            }
+        });
+    }
+
+
+    function alteraCorCirculo(){
+        let cor = $('#id_cor').val()
+        $('#color-circle').removeClass();
+        $('#color-circle').addClass(cor);
+
+        $('#addTaskDialog').removeClass();
+        $('#addTaskDialog').addClass('taskColor-' + cor);
+
+
+    }
+{% endblock script %}

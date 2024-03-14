@@ -19,4 +19,21 @@ def board_index(request, id):
         tarefas = Tarefa.objects.filter(tarefa_coluna_id=coluna.id)
         coluna.tarefas = tarefas
 
-    return render(request, 'board/board.html', {'colunas': colunas})
+    return render(request, 'board/board.html', {'colunas': colunas,
+                                                'kanban_id': id})
+
+
+@login_required
+def criar_tarefa(request):
+    if request.POST:
+        coluna_id = request.POST['coluna_id']
+        tarefa_nome = request.POST['tarefa_nome']
+
+        tarefa = Tarefa()
+        tarefa.tarefa_coluna_id = coluna_id
+        tarefa.nome = tarefa_nome
+
+        tarefa.save()
+
+
+
