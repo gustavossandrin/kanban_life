@@ -1,9 +1,6 @@
 import json
-
 from django.http import HttpResponse
 from django.shortcuts import render
-
-# Create your views here.
 from kanban_life.home.models import User
 from kanban_life.tools.views import criar_colunas_iniciais
 
@@ -35,7 +32,7 @@ def sign_up(request):
     return render(request, 'home/sign_up.html')
 
 
-def verificar_email_ja_existente(request):  # Vai verificar se já tem algum usuario com o email que vai ser passado
+def verificar_email_ja_existente(request):
     existe = False
     email = request.POST['email_verificar']
     users = User.objects.filter(email=email)
@@ -52,6 +49,7 @@ def verificar_email_ja_existente(request):  # Vai verificar se já tem algum usu
 
 def handler_404(request, exception):
     return render(request, 'home/error_404.html')
+
 
 def handler_500(request):
     return render(request, 'home/error_404.html')

@@ -36,7 +36,6 @@ class TarefaColuna(models.Model):
         u'Coluna Final',
         default=False,
     )
-    #  Dados de LOG
     criado_em = models.DateTimeField(
         u'Criado em',
         blank=True,
@@ -95,7 +94,6 @@ class Tarefa(models.Model):
         null=True,
         blank=True,
     )
-    #  Dados de LOG
     criado_em = models.DateTimeField(
         u'Criado em',
         blank=True,

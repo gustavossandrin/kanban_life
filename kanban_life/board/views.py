@@ -1,10 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseNotFound
-
 from django.shortcuts import render
-
-
-# Create your views here.
 from kanban_life.board.models import TarefaColuna, Tarefa
 
 
