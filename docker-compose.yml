@@ -16,7 +16,7 @@ services:
     restart: always
     command: pm2-runtime start pm2/workers.config.js
     volumes:
-      - .:/app
+      - .:/kanban_life
     ports:
       - "8000:8000"
     environment:

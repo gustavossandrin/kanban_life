@@ -24,11 +24,10 @@ class BoardIndexView(View):
 @method_decorator([login_required, csrf_exempt], name='dispatch')
 class CreateTaskView(View):
     def post(self, request):
-        coluna_id = request.POST['coluna_id']
-        tarefa_nome = request.POST['tarefa_nome']
+        column_id = request.POST['coluna_id']
+        task_name = request.POST['tarefa_nome']
 
-        tarefa = Task()
-        tarefa.tarefa_coluna_id = coluna_id
-        tarefa.nome = tarefa_nome
-
-        tarefa.save()
+        task = Task()
+        task.column_id = column_id
+        task.name = task_name
+        task.save()

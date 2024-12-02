@@ -1,5 +1,5 @@
 from django.db import models
-from model_utils.models import TimeStampedModel
+from model_utils.models import TimeStampedModel, UUIDModel
 
 COLOR_CHOICES = (
     ('yellow', 'Yellow'),
@@ -13,7 +13,7 @@ COLOR_CHOICES = (
 )
 
 
-class Column(models.Model, TimeStampedModel):
+class Column(UUIDModel, TimeStampedModel):
     name = models.CharField(u'Nome', max_length=30)
     user = models.ForeignKey('home.User',on_delete=models.CASCADE)
     position = models.IntegerField(u'Posição')
@@ -21,8 +21,8 @@ class Column(models.Model, TimeStampedModel):
     final_column = models.BooleanField(u'Coluna Final',default=False)
 
 
-class Task(models.Model, TimeStampedModel):
-    column = models.ForeignKey('board.TarefaColuna',on_delete=models.CASCADE, null=False, blank=False)
+class Task(UUIDModel, TimeStampedModel):
+    column = models.ForeignKey('board.Column',on_delete=models.CASCADE, null=False, blank=False)
     name = models.CharField(u'Nome da Tarefa', null=False, blank=False, max_length=300)
     time = models.TimeField(u'Tempo da Tarefa', null=True, blank=True)
     description = models.CharField(u'Descrição da Tarefa', max_length=500, null=True, blank=True)
