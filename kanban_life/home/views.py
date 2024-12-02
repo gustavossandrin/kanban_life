@@ -2,49 +2,49 @@ import json
 from django.http import HttpResponse
 from django.shortcuts import render
 from kanban_life.home.models import User
-from kanban_life.tools.views import criar_colunas_iniciais
+from kanban_life.tools.views import create_initial_columns
+from django.views.generic import TemplateView
+from django.views import View
 
 
-def home(request):
-    return render(request, 'home/home.html')
+class HomeView(TemplateView):
+    template_name = 'home/home.html'
 
 
-def about(request):
-    return render(request, 'home/about.html')
+class AboutView(TemplateView):
+    template_name = 'home/about.html'
 
 
-def sign_up(request):
-    if request.POST:
-        nome_completo = request.POST['nome_completo']
+class SignUpView(TemplateView):
+    template_name = 'home/sign_up.html'
+
+    def post(self, request):
+        full_name = request.POST['nome_completo']
         email = request.POST['email']
-        senha = request.POST['senha']
+        password = request.POST['senha']
 
-        user = User.objects.create_user(email, senha, first_name=nome_completo)
+        user = User.objects.create_user(email, password, first_name=full_name)
         user.save()
 
-        retorno = {
+        response = {
             'STATUS': 'OK',
             'mensagem': 'Conta Criada!'
         }
-        criar_colunas_iniciais(user)
+        create_initial_columns(user)
+        return HttpResponse(json.dumps(response), content_type='application/json')
+
+
+class VerifyEmail(View):
+    def post(self, request):
+        email = request.POST['email_verificar']
+        users = User.objects.filter(email=email)
+
+        retorno = {
+            'STATUS': 'OK',
+            'existe': users.exists()
+        }
+
         return HttpResponse(json.dumps(retorno), content_type='application/json')
-
-    return render(request, 'home/sign_up.html')
-
-
-def verificar_email_ja_existente(request):
-    existe = False
-    email = request.POST['email_verificar']
-    users = User.objects.filter(email=email)
-    if users:
-        existe = True
-
-    retorno = {
-        'STATUS': 'OK',
-        'existe': existe
-    }
-
-    return HttpResponse(json.dumps(retorno), content_type='application/json')
 
 
 def handler_404(request, exception):

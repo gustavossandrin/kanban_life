@@ -5,22 +5,19 @@ from django.shortcuts import render
 from kanban_life.board.models import Column
 
 
-def criar_colunas_iniciais(user):
-    # primira coluna
+def create_initial_columns(user):
     coluna_1 = Column()
     coluna_1.user = user
     coluna_1.nome = 'To-do'
     coluna_1.posicao = 1
     coluna_1.save()
 
-    # Segunda coluna
     coluna_2 = Column()
     coluna_2.user = user
     coluna_2.nome = 'Do Today'
     coluna_2.posicao = 2
     coluna_2.save()
 
-    # Terceira Coluna
     coluna_3 = Column()
     coluna_3.user = user
     coluna_3.nome = 'In progress'
