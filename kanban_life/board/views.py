@@ -1,35 +1,34 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseNotFound
 from django.shortcuts import render
-from kanban_life.board.models import TarefaColuna, Tarefa
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+from kanban_life.board.models import Column, Task
+from django.views import View
 
 
-@login_required
-def board_index(request, id):
-    if request.user.id != id:
-        return render(request, 'home/error_404.html')
+@method_decorator([login_required, csrf_exempt], name='dispatch')
+class BoardIndexView(View):
+    def get(self, request, id):
+        if request.user.id != id:
+            return render(request, 'home/error_404.html')
 
-    colunas = TarefaColuna.objects.filter(user_id=id).order_by('posicao')
+        columns = Column.objects.filter(user_id=id).order_by('position')
 
-    for coluna in colunas:
-        tarefas = Tarefa.objects.filter(tarefa_coluna_id=coluna.id)
-        coluna.tarefas = tarefas
+        for column in columns:
+            tasks = Task.objects.filter(column=column)
+            column.tasks = tasks
 
-    return render(request, 'board/board.html', {'colunas': colunas,
-                                                'kanban_id': id})
+        return render(request, 'board/board.html', {'colunas': columns, 'kanban_id': id})
 
 
-@login_required
-def criar_tarefa(request):
-    if request.POST:
+@method_decorator([login_required, csrf_exempt], name='dispatch')
+class CreateTaskView(View):
+    def post(self, request):
         coluna_id = request.POST['coluna_id']
         tarefa_nome = request.POST['tarefa_nome']
 
-        tarefa = Tarefa()
+        tarefa = Task()
         tarefa.tarefa_coluna_id = coluna_id
         tarefa.nome = tarefa_nome
 
         tarefa.save()
-
-
-
